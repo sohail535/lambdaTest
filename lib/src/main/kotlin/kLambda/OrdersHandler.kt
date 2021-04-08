@@ -4,8 +4,8 @@ import com.amazonaws.services.lambda.runtime.Context
 import com.amazonaws.services.lambda.runtime.RequestHandler
 
 class OrdersHandler: RequestHandler<Order, OrderCreateResponse> {
-    private val database = Database()
-    private val store = Store(database)
+    private val storeFactory = DaggerStoreFactory.create()
+    private val store = storeFactory.store()
     override fun handleRequest(order: Order, context: Context): OrderCreateResponse {
         val logger = context.logger
         logger.log("handling request create order $order")

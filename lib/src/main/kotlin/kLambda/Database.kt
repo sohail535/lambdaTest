@@ -1,6 +1,8 @@
 package kLambda
 
-class Database {
+import javax.inject.Inject
+
+class Database @Inject constructor(){
     private val orders = mutableMapOf<String, Order>()
 
     fun saveOrder(order: Order): Order {

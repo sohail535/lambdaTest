@@ -12,6 +12,7 @@ plugins {
     // Apply the org.jetbrains.kotlin.jvm Plugin to add support for Kotlin.
     id("org.jetbrains.kotlin.jvm") version "1.3.72"
     id("com.github.johnrengelman.shadow") version "6.1.0"
+    kotlin("kapt") version "1.4.32"
     java
 
     // Apply the java-library plugin for API and implementation separation.
@@ -32,6 +33,8 @@ dependencies {
 
     // java lambda core
     implementation("com.amazonaws:aws-lambda-java-core:1.2.1")
+    implementation("com.google.dagger:dagger:2.33")
+    kapt("com.google.dagger:dagger-compiler:2.33")
 
     // Use the Kotlin test library.
     testImplementation("org.jetbrains.kotlin:kotlin-test")
